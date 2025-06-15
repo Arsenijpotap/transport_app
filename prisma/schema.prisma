@@ -1,0 +1,34 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "../app/generated/prisma"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model GomelStations {
+    id        Int    @id @unique @default(autoincrement())
+    name      String @unique
+    shortName String @unique
+
+    asStartingPoint GomelTransport[] @relation("startingPointRelation")
+    asFinalPoint    GomelTransport[] @relation("finalPointRelation")
+}
+
+model GomelTransport {
+    id Int @id @default(autoincrement())
+
+    startingPointId Int
+    startingPoint   GomelStations @relation("startingPointRelation", fields: [startingPointId], references: [id])
+
+    finalPointId Int
+    finalPoint   GomelStations @relation("finalPointRelation", fields: [finalPointId], references: [id])
+
+    peculiarity String
+    type        String
+
+    departureTime DateTime
+    arrivalTime   DateTime
+}
