@@ -1,0 +1,60 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+@import "reset.scss";
+
+:root {
+	--background: #ffffff;
+	--foreground: #171717;
+	--blue: #3a7ffd;
+	--shadowColor: #aaaaaa;
+	--bodyColor: #1e7cae;
+	--accent: #f7f8fc;
+	--textAccent: #bdc2c6;
+	--grey: #616161;
+}
+
+$background: var(--background);
+$textColor: var(--foreground);
+$blue: var(--blue);
+$shadowColor: var(--shadowColor);
+$bodyColor: var(--bodyColor);
+$accent: var(--accent);
+$textAccent: var(--textAccent);
+$grey: var(--grey);
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	// --font-sans: var(--font-geist-sans);
+	// --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+		--textAccent: #f7f8fc;
+		--accent: #afafaf;
+	}
+}
+main {
+	// overflow: auto;
+	display: block;
+	min-height: calc(100vh - 160px);
+	background-color: $background;
+}
+body {
+	// overflow: hidden;
+	color: var(--foreground);
+	// font-family: "Roboto", sans-serif;
+	font-family: "Noto Sans", sans-serif;
+
+	// font-family: Georgia, "Times New Roman", Times, serif;
+}
+.conteiner {
+	max-width: 350px;
+	margin: auto;
+}

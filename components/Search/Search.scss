@@ -1,0 +1,32 @@
+/** @format */
+
+@use "./assets/globals" as *;
+
+.search {
+	border-radius: 20px;
+	position: relative;
+	background-color: $accent;
+
+	font-family: "Roboto" serif;
+
+	&__image {
+		top: 50%;
+		left: 10px;
+		transform: translateY(-50%);
+		color: $textAccent;
+		position: absolute;
+	}
+
+	&__input {
+		height: 56px;
+		width: 100%;
+		padding-left: 50px;
+		padding-right: 20px;
+		font-size: 16px;
+		&:active,
+		&:focus {
+			border: none;
+			outline: none;
+		}
+	}
+}

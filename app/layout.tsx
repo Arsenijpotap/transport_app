@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
+import { Geist, Geist_Mono, Inter } from "next/font/google";
+// import "../assets/globals.scss";
+import Header from "@/components/Header/Header";
+import TabPanel from "@/components/TabPanel/TabPanel";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = Inter({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
@@ -27,7 +28,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header></Header>
+        <main>
+
+
         {children}
+        </main>
+        <TabPanel></TabPanel>
       </body>
     </html>
   );

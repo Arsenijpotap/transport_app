@@ -1,0 +1,58 @@
+/** @format */
+
+@use "./assets/globals" as *;
+
+.topPanel {
+	&__buttonBar {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 20px;
+	}
+
+	&__button {
+		border-radius: 20px;
+		background-color: #d5d5d5;
+		transition: 0.2s;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 65px;
+		height: 65px;
+	}
+	&__icon {
+		transition: 0.2s;
+
+		color: $grey;
+	}
+}
+.topPanel__button_reverse {
+	& > .topPanel__icon {
+		transform: scale(-1, 1);
+		// rotate: -180deg;
+	}
+}
+#taxiBus.topPanel__button_active {
+	background-color: #fdefe2;
+	& > .topPanel__icon {
+		color: #dca430;
+	}
+}
+#bus.topPanel__button_active {
+	background-color: #d7f6fb;
+	& > .topPanel__icon {
+		color: #198da1;
+	}
+}
+#arrow.topPanel__button_active {
+	background-color: #efe4e8;
+	& > .topPanel__icon {
+		color: #a27d8e;
+	}
+}
+#star.topPanel__button_active {
+	background-color: #ddedfc;
+	& > .topPanel__icon {
+		color: #276182;
+	}
+}

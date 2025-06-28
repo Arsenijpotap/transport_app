@@ -1,0 +1,71 @@
+/** @format */
+
+@use "./assets/globals" as *;
+.scheduleItem {
+	padding: 10px;
+	border: 2px solid $textAccent;
+	width: 100%;
+	border-radius: 20px;
+	&__header {
+		gap: 7px;
+		display: flex;
+		align-items: center;
+	}
+
+	&__iconBox {
+	}
+
+	&__name {
+		font-size: 22px;
+		font-weight: 500;
+	}
+
+	&__like {
+		margin-left: auto;
+	}
+
+	&__timeList {
+		margin-top: 20px;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 10px 0;
+	}
+
+	&__timeItem {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 23%;
+		height: 30px;
+		background-color: $accent;
+		border-radius: 10px;
+		&_active {
+			background-color: #def1f8;
+			& > .scheduleItem__timeText {
+				color: #548598;
+			}
+		}
+	}
+	&__timeText {
+		color: $grey;
+		font-size: 20px;
+		font-weight: 600;
+		opacity: 80%;
+	}
+}
+#taxiBusIcon {
+	padding: 7.5px;
+	border-radius: 15px;
+	box-sizing: content-box;
+	background-color: #fdefe2;
+
+	color: #dca430;
+}
+#busIcon {
+	padding: 7.5px;
+	border-radius: 15px;
+	box-sizing: content-box;
+	background-color: #d7f6fb;
+	color: #198da1;
+}
