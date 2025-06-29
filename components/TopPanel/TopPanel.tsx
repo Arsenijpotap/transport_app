@@ -30,14 +30,24 @@ const TopPanel = () => {
             let button = document.getElementById('arrow')
             if (button) {
               button.style.pointerEvents = 'none'
-              setTimeout(() => {
+              let timeout = setTimeout(() => {
                 button.style.pointerEvents = ''
-                
+                clearTimeout(timeout)
               },200)
             }
             toggleDirection()
                 }} id='arrow' className={isDirectionToCity?'topPanel__button topPanel__button_active':'topPanel__button topPanel__button_active topPanel__button_reverse'}><ArrowRightLeft className='topPanel__icon' size={44}></ArrowRightLeft></button>
-                <button onClick={changeBusFavoriteActive} id='star' className={isBusFavoriteActive ? 'topPanel__button_active topPanel__button' : 'topPanel__button'}><Star className='topPanel__icon' size={44}></Star></button>
+                <button onClick={() => {
+                   let button = document.getElementById('star')
+                   if (button) {
+                     button.style.pointerEvents = 'none'
+                     let timeout = setTimeout(() => {
+                       button.style.pointerEvents = ''
+                       clearTimeout(timeout)
+                     },200)
+            }
+            changeBusFavoriteActive()
+                }} id='star' className={isBusFavoriteActive ? 'topPanel__button_active topPanel__button' : 'topPanel__button'}><Star className='topPanel__icon' size={44}></Star></button>
             </div>
         </div>
     

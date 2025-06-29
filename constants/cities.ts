@@ -1,6 +1,7 @@
 /** @format */
 
 const cities = {
-	homel: "",
+	гомель: "gomel",
+	минск: "minsk",
 };
 export default cities;

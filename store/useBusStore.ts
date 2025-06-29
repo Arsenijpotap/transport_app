@@ -5,6 +5,8 @@ import { persist, createJSONStorage } from "zustand/middleware";
 export interface BusState {
 	isDirectionToCity: boolean;
 	isBusFavoriteActive: boolean;
+	searchText: string;
+	setSearchText: (text: string) => void;
 	changeBusFavoriteActive: () => void;
 	activeList: ("bus" | "taxiBus")[];
 	toggleDirection: () => void;
@@ -14,6 +16,10 @@ export interface BusState {
 const useBusStore = create<BusState>()(
 	persist(
 		(set) => ({
+			searchText: "",
+			setSearchText: (text) => {
+				set(() => ({ searchText: text }));
+			},
 			isBusFavoriteActive: false,
 			changeBusFavoriteActive: () => {
 				set((state) => ({ isBusFavoriteActive: !state.isBusFavoriteActive }));
@@ -39,7 +45,7 @@ const useBusStore = create<BusState>()(
 			},
 		}),
 		{
-			name: "bus-favorite-state",
+			name: "bus-state",
 			storage: createJSONStorage(() => localStorage),
 		}
 	)

@@ -1,7 +1,7 @@
 /** @format */
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-interface Point {
+export interface Point {
 	name: string;
 	shortName: string | null;
 }

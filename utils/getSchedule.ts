@@ -30,7 +30,6 @@ function getSchedule(data: ScheduleItem[]) {
 	let formatDate = date.getHours() + date.getMinutes() / 100;
 
 	let dateArray = getDaysArray();
-	console.log(dateArray);
 	dateArray.forEach((value, index) => {
 		let sch = schedule[value];
 

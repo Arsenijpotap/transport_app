@@ -13,15 +13,38 @@
 	}
 
 	&__iconBox {
+		&.skeleton {
+			display: block;
+			width: 46px;
+			height: 46px;
+			border-radius: 15px;
+		}
 	}
 
 	&__name {
 		font-size: 22px;
 		font-weight: 500;
+		&.skeleton {
+			border-radius: 10px;
+			display: block;
+			width: 180px;
+			height: 22px;
+		}
 	}
 
+	&__type {
+		font-size: 14px;
+		color: $grey;
+		opacity: 0.7;
+	}
 	&__like {
 		margin-left: auto;
+		&.skeleton {
+			display: block;
+			width: 30px;
+			height: 30px;
+			border-radius: 100%;
+		}
 	}
 
 	&__timeList {
@@ -52,6 +75,11 @@
 		font-size: 20px;
 		font-weight: 600;
 		opacity: 80%;
+	}
+	&__likeIcon {
+		&_active {
+			color: #dca430 !important;
+		}
 	}
 }
 #taxiBusIcon {
