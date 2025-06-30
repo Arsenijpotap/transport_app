@@ -40,15 +40,16 @@ const isSearchActive = searchText.replaceAll(' ','')!=''
   let renderedCount = 0;
   const path= '/api/transport/'+cities[userRegion]
   useEffect(() => {
+    if (data.length == 0) {
    
 
-        fetch(path)
+      fetch(path)
         .then((res) => res.json())
         .then((res) => {
           setData(res)
         })
         .catch(console.error);
-      }, []);
+    } }, []);
   let namedData = searchedData.map((value) => {
     const firstName=value.startingPoint.shortName ||value.startingPoint.name
     const secondName=value.finalPoint.shortName ||value.finalPoint.name

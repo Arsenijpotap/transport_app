@@ -25,7 +25,6 @@ export interface ScheduleItem {
     data: ScheduleItem[]; 
 }
 const ScheduleItem = memo(({ data }: ItemProps) => {
-  const isDirectionToCity = useBusStore(state => state.isDirectionToCity)
     const favoriteList = useUserStore(state => state.favoriteList)
   let isFavorite = false
     const userRegion = useUserStore(state => state.region)
@@ -38,7 +37,6 @@ const ScheduleItem = memo(({ data }: ItemProps) => {
 
   
     const name = data[0].startingPoint.name.toLowerCase() != userRegion ? data[0].startingPoint.shortName || data[0].startingPoint.name : data[0].finalPoint.shortName || data[0].finalPoint.name
-  console.log(name)
     isFavorite = favoriteList.indexOf(name + '&' + data[0].type) != -1
 
     const toggleFavoriteList = useUserStore(state => state.toggleFavoriteList)
@@ -46,12 +44,12 @@ const ScheduleItem = memo(({ data }: ItemProps) => {
 
     return (<div className="scheduleItem">
         <div className="scheduleItem__header">
-        <Link  href={"transport/transport?"+params||''} >
+        <Link  href={"transport/transport?"+params} >
             <div className="scheduleItem__iconBox">
 {data[0].type =='Bus'?<BusFront id='busIcon' size={31}></BusFront >:<Bus id='taxiBusIcon' size={31}></Bus>}
                 </div>
                 </Link>
-        <Link  href={"transport/transport?"+params||''} >
+        <Link  href={"transport/transport?"+params} >
                 
             <div className="scheduleItem__textBox">
                 <p className="scheduleItem__name">{data[0].name}</p>
@@ -72,7 +70,7 @@ const ScheduleItem = memo(({ data }: ItemProps) => {
             }}>
                 <Star className={isFavorite?'scheduleItem__likeIcon scheduleItem__likeIcon_active':"scheduleItem__likeIcon"} fill={isFavorite?'#dca430':"#ffffff"} size={28}></Star>
             </button>
-        </div><Link href={"transport/transport?"+params||''} >
+        </div><Link href={"transport/transport?"+params} >
         <div className="scheduleItem__timeList">
 {scheduleList.map((time,index) => {
     return (

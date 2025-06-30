@@ -43,7 +43,7 @@ const TabPanel= memo( () => {
 
                
                 <div className="tabpanel__box">
-                <div className={pathname=='/'?'tabpanel__marker tabpanel__marker_left':pathname=='/stations'?"tabpanel__marker tabpanel__marker_center":'tabpanel__marker tabpanel__marker_right'}> </div>
+                <div className={pathname=='/'||pathname.includes('transport')?'tabpanel__marker tabpanel__marker_left':pathname=='/stations'?"tabpanel__marker tabpanel__marker_center":'tabpanel__marker tabpanel__marker_right'}> </div>
                     {links.map((link, index) => (
                         <Link 
                             key={index}
