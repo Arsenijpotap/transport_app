@@ -17,6 +17,7 @@ interface Route {
 	startingPoint: Point;
 	finalPoint: Point;
 	weekDays: string;
+	description: string;
 }
 
 export interface AppState {

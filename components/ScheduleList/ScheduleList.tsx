@@ -38,15 +38,15 @@ const ScheduleList = memo(() => {
   let searchedData=searchText?items:data
 const isSearchActive = searchText.replaceAll(' ','')!=''
   let renderedCount = 0;
-  const path= '/api/transport/'+cities[userRegion]
+  const path= '/api/transport/' + cities[userRegion]
   useEffect(() => {
-    if (data.length == 0) {
-   
-
-      fetch(path)
+    if(data.length == 0 || data.toString().includes('error')) {
+   fetch(path)
         .then((res) => res.json())
         .then((res) => {
-          setData(res)
+          if (!JSON.stringify(res).includes('error')) {
+            setData(res)
+          }
         })
         .catch(console.error);
     } }, []);

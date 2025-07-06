@@ -15,10 +15,14 @@ const TopPanel = () => {
     const isDirectionToCity = useBusStore(state => state.isDirectionToCity)
    
  
-    
+    const searchText= useBusStore(state =>state.searchText)
+    const setSearchText= useBusStore(state =>state.setSearchText)
+
     return (<div className="conteiner">
         <div className="topPanel">
-            <SearchInput></SearchInput>
+            <SearchInput value={searchText} handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value)
+  }}></SearchInput>
             <div  className="topPanel__buttonBar">
                 <button onClick={() => {
                   toggleActiveList('bus')

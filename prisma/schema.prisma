@@ -27,6 +27,7 @@ model GomelTransport {
   finalPoint      GomelStations @relation("finalPointRelation", fields: [finalPointId], references: [id])
   startingPoint   GomelStations @relation("startingPointRelation", fields: [startingPointId], references: [id])
   weekDays        String
+  description     String
 }
 
 enum Type {

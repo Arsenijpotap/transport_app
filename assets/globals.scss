@@ -63,6 +63,7 @@ body {
 
 // skeleton-shimmer.scss
 .skeleton {
+	// opacity: 100% !important;
 	position: relative;
 	overflow: hidden;
 	background-color: $skeletonColor;

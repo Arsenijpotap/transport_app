@@ -32,16 +32,33 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		width: 80%;
+		width: 90%;
 		margin: auto;
 		background-color: $accent;
+		&.skeleton {
+			height: 34px;
+		}
+		&_special {
+			// color: #0a0a0a;
+			background-color: #def1f8;
+		}
 	}
 
 	&__itemTime {
 		opacity: 0.7;
 		font-size: 18px;
 	}
+	&__error {
+		font-size: 20px;
+		color: $textAccent;
+
+		margin: 25vh auto 0 auto;
+	}
 	&__itemText {
+		opacity: 0.9;
+		color: $textAccent;
+		max-width: 150px;
+		font-size: 12px;
 	}
 
 	&__name {
@@ -75,6 +92,10 @@
 		&_active {
 			color: $grey;
 			background-color: $textAccent;
+		}
+		&.skeleton {
+			width: 36px;
+			height: 31px;
 		}
 	}
 

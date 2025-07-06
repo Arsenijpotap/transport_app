@@ -27,17 +27,20 @@ export default memo(function Transport(params: string) {
     type + '&' + startingPointId + '_' + finalPointId
   );
   useEffect(() => {
-    if (data.length == 0) {
+    if (data.length == 0 || data.toString().includes('error')) {
 
       const path = '/api/transport/' + cities[userRegion]
       fetch(path)
         .then((res) => res.json())
         .then((res) => {
-          setData(res)
+          if (!JSON.stringify(res).includes('error')) {
+            setData(res)
+          }
         })
         .catch(console.error);
     }
   })
+  console.log(currentDay)
   const favoriteList = useUserStore(state => state.favoriteList)
   const toggleFavoriteList = useUserStore(state => state.toggleFavoriteList)
   if (data[0]) {
@@ -49,7 +52,7 @@ export default memo(function Transport(params: string) {
     const fullName = firstName + ' - ' + secondName
     console.log(currentData)
     let isFavorite = favoriteList.indexOf(name + '&' + currentData[0].type) != -1
-  
+    let renderedCount=0
     return (
       <div className="conteiner">
         <div className="transport">
@@ -87,17 +90,54 @@ export default memo(function Transport(params: string) {
           })
           }</div>
           <div className="transport__list">
+            
             {currentData.sort((a, b) => {
               return parseFloat(a.departureTime) - parseFloat(b.departureTime)
             
-            }).map((value) => { if (value.weekDays.includes(activeDay)) return (<div key={value.id} className="transport__item"><p className='transport__itemTime'>{value.departureTime + ' - ' + value.arrivalTime}</p><p className='transport__itemText'>{ value.peculiarity||''}</p></div>) })}
-
+            }).map((value) => {
+              if (value.weekDays.includes(activeDay)) {
+                renderedCount++;
+                return (<div key={value.id} className={value.peculiarity?"transport__item transport__item_special":"transport__item"}><p className='transport__itemTime'>{value.departureTime + ' - ' + value.arrivalTime}</p><p className='transport__itemText'>{value.peculiarity || value.description||''}</p></div>)
+              }
+            })}
+{renderedCount==0?<p className='transport__error'>Рпсписание не найдено</p>:<></>}
 
           </div>
         </div></div>
     );
   } else {
-    return(<>sgd</>)
+    return( <div className="conteiner">
+      <div className="transport ">
+      <div  className="transport__cross skeleton" />
+          <div className="transport__header">
+            <div className="transport__iconBox skeleton">
+             <div id='busIcon skeleton'></div>
+            </div>
+                
+            <div className="transport__textBox">
+              <p className="transport__name skeleton"></p>
+              <p className="transport__type skeleton"></p>
+            
+            </div>
+          <div className="transport__like skeleton"></div>
+           
+          </div>
+      <div className="transport__days">{
+        weekDays.map((day,index) => {
+          return (<div key={index}
+            className='transport__day skeleton'></div>)
+          })
+        }</div>
+          <div className="transport__list">
+          <div className="transport__item skeleton"></div>
+          <div className="transport__item skeleton"></div>
+          <div className="transport__item skeleton"></div>
+          <div className="transport__item skeleton"></div>
+          <div className="transport__item skeleton"></div>
+          <div className="transport__item skeleton"></div>
+</div>
+        </div>
+    </div>)
   }
 }
 )
