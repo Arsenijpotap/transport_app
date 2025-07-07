@@ -31,6 +31,9 @@ const Stations = () => {
                 }} id='star' className={isStationFavoriteActive ? 'stations__button_active stations__button' : 'stations__button'}><Star className='stations__icon' size={40}></Star></button>
           
                 </div>
+                <div className="stations__list">
+                    
+                </div>
             </div>
         </div>
 );
