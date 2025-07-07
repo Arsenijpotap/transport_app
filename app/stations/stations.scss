@@ -1,2 +1,33 @@
 /** @format */
 @use "./assets/globals" as *;
+
+.conteiner {
+}
+.stations {
+}
+.stations {
+	&__header {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__button {
+		border-radius: 20px;
+		background-color: #d5d5d5;
+		transition: 0.2s;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 56px;
+		height: 56px;
+	}
+	& .search {
+		width: 81%;
+	}
+}
+#star.stations__button_active {
+	background-color: #ddedfc;
+	& > .stations__icon {
+		color: #276182;
+	}
+}

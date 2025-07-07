@@ -4,9 +4,9 @@ import { persist, createJSONStorage } from "zustand/middleware";
 
 export interface BusState {
 	isDirectionToCity: boolean;
-	isBusFavoriteActive: boolean;
 	searchText: string;
 	setSearchText: (text: string) => void;
+	isBusFavoriteActive: boolean;
 	changeBusFavoriteActive: () => void;
 	activeList: ("bus" | "taxiBus")[];
 	toggleDirection: () => void;
