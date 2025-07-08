@@ -25,7 +25,7 @@ export interface ScheduleItem {
     data: ScheduleItem[]; 
 }
 const ScheduleItem = memo(({ data }: ItemProps) => {
-    const favoriteList = useUserStore(state => state.favoriteList)
+    const favoriteList = useUserStore(state => state.favoriteBusList)
   let isFavorite = false
     const userRegion = useUserStore(state => state.region)
     const params = new URLSearchParams({
@@ -39,7 +39,7 @@ const ScheduleItem = memo(({ data }: ItemProps) => {
     const name = data[0].startingPoint.name.toLowerCase() != userRegion ? data[0].startingPoint.shortName || data[0].startingPoint.name : data[0].finalPoint.shortName || data[0].finalPoint.name
     isFavorite = favoriteList.indexOf(name + '&' + data[0].type) != -1
 
-    const toggleFavoriteList = useUserStore(state => state.toggleFavoriteList)
+    const toggleFavoriteList = useUserStore(state => state.toggleFavoriteBusList)
     let scheduleList = getSchedule(data)
 
     return (<div className="scheduleItem">

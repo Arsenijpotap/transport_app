@@ -6,8 +6,10 @@ type regions = "минск" | "гомель";
 export interface UserState {
 	region: regions;
 	setRegion: (region: regions) => void;
-	toggleFavoriteList: (type: string) => void;
-	favoriteList: string[];
+	toggleFavoriteBusList: (type: string) => void;
+	favoriteBusList: string[];
+	toggleFavoriteStationsList: (type: string) => void;
+	favoriteStationsList: string[];
 }
 
 const useUserStore = create<UserState>()(
@@ -17,18 +19,33 @@ const useUserStore = create<UserState>()(
 			setRegion: (reg) => {
 				set((state) => ({ region: reg }));
 			},
-			favoriteList: [],
-			toggleFavoriteList: (favorite: string) => {
+			favoriteBusList: [],
+			toggleFavoriteBusList: (favorite: string) => {
 				set((state) => {
-					const index = state.favoriteList.indexOf(favorite);
+					const index = state.favoriteBusList.indexOf(favorite);
 
 					if (index !== -1) {
-						const newFavoriteList = [...state.favoriteList];
+						const newFavoriteList = [...state.favoriteBusList];
 						newFavoriteList.splice(index, 1);
-						return { favoriteList: newFavoriteList };
+						return { favoriteBusList: newFavoriteList };
 					} else {
-						const newActiveList = [...state.favoriteList, favorite];
-						return { favoriteList: newActiveList };
+						const newActiveList = [...state.favoriteBusList, favorite];
+						return { favoriteBusList: newActiveList };
+					}
+				});
+			},
+			favoriteStationsList: [],
+			toggleFavoriteStationsList: (favorite: string) => {
+				set((state) => {
+					const index = state.favoriteStationsList.indexOf(favorite);
+
+					if (index !== -1) {
+						const newFavoriteList = [...state.favoriteStationsList];
+						newFavoriteList.splice(index, 1);
+						return { favoriteStationsList: newFavoriteList };
+					} else {
+						const newActiveList = [...state.favoriteStationsList, favorite];
+						return { favoriteStationsList: newActiveList };
 					}
 				});
 			},

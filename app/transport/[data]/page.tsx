@@ -41,8 +41,8 @@ export default memo(function Transport(params: string) {
     }
   })
   console.log(currentDay)
-  const favoriteList = useUserStore(state => state.favoriteList)
-  const toggleFavoriteList = useUserStore(state => state.toggleFavoriteList)
+  const favoriteList = useUserStore(state => state.favoriteBusList)
+  const toggleFavoriteList = useUserStore(state => state.toggleFavoriteBusList)
   if (data[0]) {
     let currentData = groupedData[type + '&' + startingPointId + '_' + finalPointId] || []
     const name = data[0].startingPoint.name.toLowerCase() != userRegion ? data[0].startingPoint.shortName || data[0].startingPoint.name : data[0].finalPoint.shortName || data[0].finalPoint.name

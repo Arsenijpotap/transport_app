@@ -15,7 +15,7 @@ const ScheduleList = memo(() => {
   const activeList = useBusStore(state => state.activeList)
   const isDirectionToCity = useBusStore(state => state.isDirectionToCity)
   const userRegion = useUserStore(state => state.region)
-  const favoriteList = useUserStore(state => state.favoriteList)
+  const favoriteList = useUserStore(state => state.favoriteBusList)
   const isBusFavoriteActive = useBusStore(state => state.isBusFavoriteActive)
   const searchText = useBusStore(state => state.searchText)
   let changedData = data.map((obj) => {
